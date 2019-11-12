@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+{#      <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">#}
+    <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <title>Flask Tutorial</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+        <div style="float:left">
+            <canvas height="280" width="280" id="mycanvas"></canvas>
+            <div>
+                <button id = button onclick="change()">Predict</button>
+            </div>
+        </div>
+        <div style="float:left; font-size: 20px; margin-left: 80px">
+            <p id="demo" style="font-size: 150px"></p>
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% endblock %}
+    </body>
+</html>

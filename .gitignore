@@ -1,0 +1,9 @@
+virtual/
+
+include/
+
+bin/
+
+lib/
+
+.pyvenv.cfg
