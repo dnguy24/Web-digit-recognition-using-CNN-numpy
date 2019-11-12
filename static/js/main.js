@@ -23,7 +23,7 @@ function change(){
         },
         error: function (data) {
             console.log("no:(")
-            document.getElementById("demo").innerHTML = data
+            document.getElementById("result").innerHTML = "the digit is not recognizable, try again"
         }
     });
 }
@@ -61,11 +61,12 @@ mycanvas.addEventListener("mouseleave", function () {
         dataType: "json",
         success: function (data) {
             console.log("yes!")
+            document.getElementById("result").innerHTML = ""
             document.getElementById("demo").innerHTML = data
         },
         error: function (data) {
             console.log("no:(")
-            document.getElementById("demo").innerHTML = data
+            document.getElementById("result").innerHTML = "the digit is not recognizable, try again"
         }
     });
     }
@@ -78,7 +79,7 @@ mycanvas.addEventListener("mousemove", function(e){
         currY = parseInt(e.clientY - rect.top);
         data.push([currX, currY])
         ctx.beginPath();
-        ctx.lineWidth = 20;
+        ctx.lineWidth = 15;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
         ctx.moveTo(prevX, prevY);

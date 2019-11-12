@@ -22,6 +22,7 @@ def main():
     model.add(tf.keras.layers.Conv2D(32, kernel_size=(3, 3),
                                      activation='relu',
                                      input_shape=input_shape))
+    model.add(tf.keras.layers.MaxPooling2D(strides=1))
     model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
     model.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
     model.add(tf.keras.layers.Dropout(0.25))
@@ -35,6 +36,7 @@ def main():
     model.fit(X_train, Y_train, batch_size=batch_size, epochs=epochs, verbose=1, validation_data=(X_test, Y_test))
     score = model.evaluate(X_test, Y_test, verbose=0)
     model_json = model.to_json()
+    print(score)
     with open("/Users/ducnguyen/python/untitled2/CNN/models/model.json", "w") as json_file:
         json_file.write(model_json)
     model.save_weights("/Users/ducnguyen/python/untitled2/CNN/models/weights.h5")
@@ -56,7 +58,9 @@ class Model:
     def classify(self, imgarray):
         imgarray = imgarray.reshape((28, 28, 1))
         imgarray = np.expand_dims(imgarray, axis=0)
+        imgarray/=255
         predictions = self.model.predict(imgarray)
         return np.argmax(predictions)
 
-
+if __name__ == "__main__":
+    main()
