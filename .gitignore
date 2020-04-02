@@ -6,4 +6,11 @@ bin/
 
 lib/
 
+ArtisticAI/
+
+CNN/model.py
+CNN/network.py
+
+a.py
+
 .pyvenv.cfg
